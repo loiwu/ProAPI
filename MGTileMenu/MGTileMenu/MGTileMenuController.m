@@ -444,9 +444,10 @@ CGGradientRef MGCreateGradientWithColors(UIColor *topColorRGB, UIColor *bottomCo
 	CGRect tileRect = CGRectMake(0, 0, _tileSide, _tileSide);
 	if (UIGraphicsBeginImageContextWithOptions != NULL) {
 		UIGraphicsBeginImageContextWithOptions(tileRect.size, NO, 0.0);
-	} else {
-		UIGraphicsBeginImageContext(tileRect.size);
 	}
+//	else {
+//		UIGraphicsBeginImageContext(tileRect.size);
+//	}
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	UIGraphicsPushContext(context);
 	
