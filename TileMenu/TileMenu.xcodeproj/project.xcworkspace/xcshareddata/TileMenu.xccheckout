@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A1566C99-EAD3-4A15-B268-89782E4AF4E6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TileMenu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>85415010EE48B6D18A5487580B3714DA2DAEAC26</key>
+		<string>https://github.com/loiwu/ProAPI.git</string>
+		<key>BCF51171F118738F715104FB99DBC56FE48A16BA</key>
+		<string>https://bitbucket.org/Loi/ibaen.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TileMenu/TileMenu.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>85415010EE48B6D18A5487580B3714DA2DAEAC26</key>
+		<string>../../..</string>
+		<key>BCF51171F118738F715104FB99DBC56FE48A16BA</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/loiwu/ProAPI.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>85415010EE48B6D18A5487580B3714DA2DAEAC26</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BCF51171F118738F715104FB99DBC56FE48A16BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85415010EE48B6D18A5487580B3714DA2DAEAC26</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ProAPI</string>
+		</dict>
+	</array>
+</dict>
+</plist>
