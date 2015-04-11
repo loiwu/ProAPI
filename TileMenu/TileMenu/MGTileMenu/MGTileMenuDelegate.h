@@ -23,5 +23,7 @@
 - (NSString *)descriptionForTile:(NSInteger)tileNumber inMenu:(MGTileMenuController *)tileMenu; // zero-based tileNumber
 // N.B. Labels and descriptions (hints) are used for accessibility, and are thus required. They are not displayed.
 // N.B. Images are centered on the tile, and are not scaled.
+@optional
+- (BOOL)isTileEnabled:(NSInteger)tileNumber inMenu:(MGTileMenuController *)tileMenu; // zero-based tileNumber
 
 @end
