@@ -37,4 +37,23 @@
 //      In all cases, the tiles' backgrounds will be clipped to a rounded rectangle.
 //      Note that these methods are also called for the page-switching tile, with tileNumber MG_PAGE_SWITCHING_TILE_INDEX.
 
+@required
+- (void)tileMenu:(MGTileMenuController *)tileMenu didActivateTile:(NSInteger)tileNumber; // zero-based tileNumber
+// N.B. The above method fires when the user has pressed and released a given tile, thus choosing or activating it.
+
+@optional
+- (void)tileMenuWillDisplay:(MGTileMenuController *)tileMenu;
+- (void)tileMenuDidDisplay:(MGTileMenuController *)tileMenu;
+
+- (BOOL)tileMenuShouldDismiss:(MGTileMenuController *)tileMenu;
+- (void)tileMenuWillDismiss:(MGTileMenuController *)tileMenu;
+- (void)tileMenuDidDismiss:(MGTileMenuController *)tileMenu;
+
+- (void)tileMenu:(MGTileMenuController *)tileMenu didSelectTile:(NSInteger)tileNumber; // zero-based tileNumber
+- (void)tileMenu:(MGTileMenuController *)tileMenu didDeselectTile:(NSInteger)tileNumber; // zero-based tileNumber
+
+- (BOOL)tileMenu:(MGTileMenuController *)tileMenu shouldSwitchToPage:(NSInteger)pageNumber; // zero-based pageNumber
+- (void)tileMenu:(MGTileMenuController *)tileMenu willSwitchToPage:(NSInteger)pageNumber; // zero-based pageNumber
+- (void)tileMenu:(MGTileMenuController *)tileMenu didSwitchToPage:(NSInteger)pageNumber; // zero-based pageNumber
+
 @end
