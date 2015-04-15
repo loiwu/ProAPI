@@ -7,15 +7,17 @@
 //
 
 #import "MGTileMenuView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MGTileMenuView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+@synthesize controller;
+
+- (void)drawRect:(CGRect)rect
+{
+    // It's tough being this good, but somehow I manage.
+    [controller.bezelColor set];
+    [[controller _bezelPath] fill];
 }
-*/
 
 @end

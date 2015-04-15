@@ -49,5 +49,5 @@
 
 // Utilities
 CGGradientRef MGCreateGradientWithColors(UIColor *topColorRGB, UIColor *bottomColorRGB);
-
+- (UIBezierPath *)_bezelPath;
 @end

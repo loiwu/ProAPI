@@ -116,4 +116,16 @@ CGGradientRef MGCreateGradientWithColors(UIColor *topColorRGB, UIColor *bottomCo
     return gradient; // follows the "Create rule"; i.e. must be released by caller (even with ARC)
 }
 
+- (UIBezierPath *)_bezelPath
+{
+    CGRect bezelRect = self.view.bounds;
+    CGFloat halfTile = (CGFloat)(self.tileSide) / 2.0;
+    bezelRect.origin.x += halfTile;
+    bezelRect.origin.y += halfTile;
+    bezelRect.size.width -= self.tileSide;
+    bezelRect.size.height -= self.tileSide;
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:bezelRect cornerRadius:_cornerRadius];
+    return path;
+}
+
 @end

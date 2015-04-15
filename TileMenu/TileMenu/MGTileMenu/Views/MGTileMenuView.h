@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGTileMenuController.h"
 
 @interface MGTileMenuView : UIView
+
+@property (weak, nonatomic) MGTileMenuController *controller;
 
 @end
