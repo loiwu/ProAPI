@@ -44,4 +44,7 @@
 @property (nonatomic) BOOL shouldMoveToStayVisibleAfterRotation; // whether the menu should automatically move to remain fully visible after the device has been rotated (default: YES)
 @property (nonatomic) BOOL closeButtonVisible; // whether the close button is visible (default: YES). If NO, the user can still dismiss the menu by tapping outside its bounds (which you can also disable via the tileMenuShouldDismiss: delegate method)
 
+// Creation.
+- (id)initWithDelegate:(id<MGTileMenuDelegate>)theDelegate; // required parameter; cannot be nil.
+
 @end

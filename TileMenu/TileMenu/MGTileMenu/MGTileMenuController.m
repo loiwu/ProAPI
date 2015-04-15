@@ -14,6 +14,40 @@
 
 @implementation MGTileMenuController
 
+@synthesize delegate = _delegate;
+@synthesize centerPoint = _centerPoint;
+@synthesize parentView = _parentView;
+@synthesize isVisible = _isVisible;
+@synthesize currentPage = _currentPage;
+
+@synthesize dismissAfterTileActivated = _dismissAfterTileActivated;
+@synthesize rightHanded = _rightHanded;
+@synthesize shadowsEnabled = _shadowsEnabled;
+@synthesize tileSide = _tileSide;
+@synthesize tileGap = _tileGap;
+@synthesize cornerRadius = _cornerRadius;
+@synthesize tileGradient = _tileGradient;
+@synthesize selectionBorderWidth = _selectionBorderWidth;
+@synthesize selectionGradient = _selectionGradient;
+@synthesize bezelColor = _bezelColor;
+@synthesize closeButtonImage = _closeButtonImage;
+@synthesize selectedCloseButtonImage = _selectedCloseButtonImage;
+@synthesize pageButtonImage = _pageButtonImage;
+@synthesize shouldMoveToStayVisibleAfterRotation = _shouldMoveToStayVisibleAfterRotation;
+@synthesize closeButtonVisible = _closeButtonVisible;
+
+#pragma mark - Creation and destruction
+
+- (id)initWithDelegate:(id<MGTileMenuDelegate>)theDelegate
+{
+    if (theDelegate && [theDelegate conformsToProtocol:@protocol(MGTileMenuDelegate)]) {
+        _delegate = theDelegate;
+        return (self = [self initWithNibName:nil bundle:nil]);
+    }
+    
+    return nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
