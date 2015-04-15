@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface MGTileMenuController : UIViewController
+{
+    UIButton *_closeButton;
+    NSMutableArray *_tileButtons;
+    UIButton *pageButton;
+    BOOL _tilesArranged;
+    BOOL _animatingTiles;
+    BOOL _tileAnimatonInterrupted;
+    NSMutableArray *_animationOrder;
+    BOOL _singlePageMaxTiles; // indicates the expectional situation of having exactly 6 tiles.
+}
 
 @end

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instinctivecode_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RYS-wx-Lek">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loidev.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="RYS-wx-Lek">
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                             </imageView>
                         </subviews>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="instinctivecode_logo.png" width="421" height="450"/>
+        <image name="loidev.JPG" width="320" height="528"/>
     </resources>
 </document>

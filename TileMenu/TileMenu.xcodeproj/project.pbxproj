@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EF23CBB1ADDFD10006423C7 /* loidev.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1EF23CB91ADDFD10006423C7 /* loidev.JPG */; };
+		1EF23CBC1ADDFD10006423C7 /* loidev@2x.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 1EF23CBA1ADDFD10006423C7 /* loidev@2x.JPG */; };
 		1EF91E301AD7629300C935BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF91E2F1AD7629300C935BF /* main.m */; };
 		1EF91E331AD7629300C935BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF91E321AD7629300C935BF /* AppDelegate.m */; };
 		1EF91E361AD7629300C935BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF91E351AD7629300C935BF /* ViewController.m */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EF23CB91ADDFD10006423C7 /* loidev.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loidev.JPG; sourceTree = "<group>"; };
+		1EF23CBA1ADDFD10006423C7 /* loidev@2x.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loidev@2x.JPG"; sourceTree = "<group>"; };
 		1EF91E2A1AD7629300C935BF /* TileMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TileMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF91E2E1AD7629300C935BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EF91E2F1AD7629300C935BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 		1EF91E6F1AD772CE00C935BF /* Logos */ = {
 			isa = PBXGroup;
 			children = (
+				1EF23CB91ADDFD10006423C7 /* loidev.JPG */,
+				1EF23CBA1ADDFD10006423C7 /* loidev@2x.JPG */,
 				1EF91E6B1AD772C600C935BF /* instinctivecode_logo.png */,
 				1EF91E6C1AD772C600C935BF /* instinctivecode_logo@2x.png */,
 			);
@@ -354,8 +360,10 @@
 				1EF91E7A1AD772F100C935BF /* orange_gradient@2x.png in Resources */,
 				1EF91E901AD773DC00C935BF /* Text@2x.png in Resources */,
 				1EF91E7B1AD772F100C935BF /* purple_gradient@2x.png in Resources */,
+				1EF23CBC1ADDFD10006423C7 /* loidev@2x.JPG in Resources */,
 				1EF91E7C1AD772F100C935BF /* red_gradient@2x.png in Resources */,
 				1EF91E781AD772F100C935BF /* green_gradient@2x.png in Resources */,
+				1EF23CBB1ADDFD10006423C7 /* loidev.JPG in Resources */,
 				1EF91E7D1AD772F100C935BF /* yellow_gradient@2x.png in Resources */,
 				1EF91E8D1AD773DC00C935BF /* magnifier@2x.png in Resources */,
 				1EF91E8F1AD773DC00C935BF /* speech@2x.png in Resources */,
@@ -603,6 +611,7 @@
 				1EF91E4F1AD7629300C935BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EF91E501AD7629300C935BF /* Build configuration list for PBXNativeTarget "TileMenuTests" */ = {
 			isa = XCConfigurationList;
@@ -611,6 +620,7 @@
 				1EF91E521AD7629300C935BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
