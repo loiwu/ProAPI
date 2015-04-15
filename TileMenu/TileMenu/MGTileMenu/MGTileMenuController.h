@@ -47,4 +47,7 @@
 // Creation.
 - (id)initWithDelegate:(id<MGTileMenuDelegate>)theDelegate; // required parameter; cannot be nil.
 
+// Utilities
+CGGradientRef MGCreateGradientWithColors(UIColor *topColorRGB, UIColor *bottomColorRGB);
+
 @end
