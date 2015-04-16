@@ -7,6 +7,8 @@
 //
 
 #import "MGTileMenuController.h"
+#import "MGTileMenuView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MGTileMenuController ()
 
@@ -94,6 +96,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - View lifecycle
+
+// Implement loadView to create a view hierarchy programmatically, without using a nib.
+- (void)loadView
+{
+    NSInteger bezelSize = (self.tileSide * 3) + (self.tileGap * 2);
+    self.view = [[MGTileMenuView alloc] initWithFrame:CGRectMake(0, 0, bezelSize, bezelSize)];
+    ((MGTileMenuView *)(self.view)).controller = self;
+    
+    self.view.opaque = NO;
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.layer.opaque = NO;
+    
+    self.view.layer.shadowRadius = 5.0;
+    self.view.layer.shadowOpacity = 0.75;
+    self.view.layer.shadowOffset = CGSizeMake(0, 5);
+    if (!_shadowsEnabled) {
+        self.view.layer.shadowRadius = 0.0;
+        self.view.layer.shadowOffset = CGSizeZero;
+    }
 }
 
 #pragma mark - Utilities
