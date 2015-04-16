@@ -10,6 +10,15 @@
 #import "MGTileMenuView.h"
 #import <QuartzCore/QuartzCore.h>
 
+// Various keys for internal use.
+#define MG_ANIMATION_APPEAR @"Appear"
+#define MG_ANIMATION_DISAPPEAR @"Disappear"
+// Timing.
+#define MG_ANIMATION_DURATION 0.15 // seconds
+
+// Notifications.
+NSString *MGTileMenuWillDismissNotification;
+
 @interface MGTileMenuController ()
 
 @end
@@ -172,6 +181,103 @@ CGGradientRef MGCreateGradientWithColors(UIColor *topColorRGB, UIColor *bottomCo
     bezelRect.size.height -= self.tileSide;
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:bezelRect cornerRadius:_cornerRadius];
     return path;
+}
+
+#pragma mark - Displaying and dismissing the menu
+
+// Immediately dismiss/hide the menu, cancelling futher interaction.
+- (void)dismissMenu
+{
+    if ([self isVisible]) {
+        // Check with delegate.
+        BOOL shouldDismiss = YES;
+        if (_delegate && [_delegate respondsToSelector:@selector(tileMenuShouldDismiss:)]) {
+            shouldDismiss = [_delegate tileMenuShouldDismiss:self];
+        }
+        
+        if (shouldDismiss) {
+            // Add disappearance animations.
+            NSArray *animations = [self _animationsForAppearing:NO];
+            int i = 0;
+            for (CAAnimation *animation in animations) {
+                [self.view.layer addAnimation:animation forKey:[NSString stringWithFormat:@"%d", i]];
+                i++;
+            }
+            
+            // Inform delegate.
+            if (_delegate && [_delegate respondsToSelector:@selector(tileMenuShouldDismiss:)]) {
+                [_delegate tileMenuWillDismiss:self];
+            }
+            
+            // Send Notification.
+            [[NSNotificationCenter defaultCenter] postNotificationName:MGTileMenuWillDismissNotification
+                                                                object:self
+                                                              userInfo:nil];
+        }
+    }
+}
+
+- (NSArray *)_animationsForAppearing:(BOOL)appearing
+{
+    NSMutableArray *animations = [NSMutableArray arrayWithCapacity:0];
+    
+    if (appearing) {
+        CABasicAnimation *expandAnimation;
+        expandAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        [expandAnimation setValue:MG_ANIMATION_APPEAR forKey:@"name"];
+        [expandAnimation setRemovedOnCompletion:NO];
+        [expandAnimation setDuration:MG_ANIMATION_DURATION];
+        [expandAnimation setFillMode:kCAFillModeForwards];
+        [expandAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+        [expandAnimation setDelegate:self];
+        CGFloat factor = 0.6;
+        CATransform3D transform = CATransform3DMakeScale(factor, factor, factor);
+        expandAnimation.fromValue = [NSValue valueWithCATransform3D:transform];
+        expandAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        
+        [animations addObject:expandAnimation];
+        
+        CABasicAnimation *fadeAnimation;
+        fadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        [fadeAnimation setValue:MG_ANIMATION_APPEAR forKey:@"name"];
+        [fadeAnimation setRemovedOnCompletion:NO];
+        [fadeAnimation setDuration:MG_ANIMATION_DURATION];
+        [fadeAnimation setFillMode:kCAFillModeForwards];
+        [fadeAnimation setDelegate:self];
+        fadeAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+        fadeAnimation.toValue = [NSNumber numberWithFloat:1.0];
+        
+        [animations addObject:fadeAnimation];
+    } else {
+        CABasicAnimation *shrinkAnimation;
+        shrinkAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        [shrinkAnimation setValue:MG_ANIMATION_DISAPPEAR forKey:@"name"];
+        [shrinkAnimation setRemovedOnCompletion:NO];
+        [shrinkAnimation setDuration:MG_ANIMATION_DURATION];
+        [shrinkAnimation setFillMode:kCAFillModeForwards];
+        [shrinkAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
+        [shrinkAnimation setDelegate:self];
+        shrinkAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+        CGFloat factor = 0.6;
+        CATransform3D transform = CATransform3DMakeScale(factor, factor, factor);
+        shrinkAnimation.toValue = [NSValue valueWithCATransform3D:transform];
+        
+        [animations addObject:shrinkAnimation];
+        
+        CABasicAnimation *fadeAnimation;
+        fadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        [fadeAnimation setValue:MG_ANIMATION_DISAPPEAR forKey:@"name"];
+        [fadeAnimation setRemovedOnCompletion:NO];
+        [fadeAnimation setDuration:MG_ANIMATION_DURATION];
+        [fadeAnimation setFillMode:kCAFillModeForwards];
+        [fadeAnimation setDelegate:self];
+        fadeAnimation.fromValue = [NSNumber numberWithFloat:1.0];
+        fadeAnimation.toValue = [NSNumber numberWithFloat:0.0];
+        
+        [animations addObject:fadeAnimation];
+    }
+    
+    return animations;
 }
 
 @end

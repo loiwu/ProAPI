@@ -47,6 +47,9 @@
 // Creation.
 - (id)initWithDelegate:(id<MGTileMenuDelegate>)theDelegate; // required parameter; cannot be nil.
 
+// Immediately dismiss/hide the menu, cancelling further interaction.
+- (void)dismissMenu;
+
 // Utilities
 CGGradientRef MGCreateGradientWithColors(UIColor *topColorRGB, UIColor *bottomColorRGB);
 - (UIBezierPath *)_bezelPath;
