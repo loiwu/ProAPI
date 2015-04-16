@@ -118,6 +118,28 @@
         self.view.layer.shadowRadius = 0.0;
         self.view.layer.shadowOffset = CGSizeZero;
     }
+    
+    // Close button
+    _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *closeImage;
+    if (_closeButtonImage != nil) {
+        closeImage = _closeButtonImage;
+    } else {
+        closeImage = [UIImage imageNamed:@"CloseButton"];
+    }
+    _closeButton.accessibilityLabel = NSLocalizedString(@"Close", @"Accessibility label for Close button");
+    _closeButton.accessibilityHint = NSLocalizedString(@"Closes the menu", @"Accessibility hint for Close button");
+    CGRect closeFrame = CGRectZero;
+    closeFrame.size = closeImage.size;
+    _closeButton.frame = closeFrame;
+    [_closeButton setBackgroundImage:closeImage forState:UIControlStateNormal];
+    if (_selectedCloseButtonImage != nil) {
+        [_closeButton setBackgroundImage:_selectedCloseButtonImage forState:UIControlStateHighlighted];
+    } else {
+        [_closeButton setBackgroundImage:nil forState:UIControlStateHighlighted];
+    }
+    [_closeButton addTarget:self action:@selector(dismissMenu) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_closeButton];
 }
 
 #pragma mark - Utilities
